@@ -44,7 +44,7 @@ Arquivo único `index.html` na raiz, sem build, deploy via Railway com domínio 
 
 1. **Sistemas de missão crítica em produção** — passagens por CVC Corp (maior grupo de viagens da AL), Caixa Econômica via Globalweb (FGTS / Saque-Aniversário, milhões de usuários), Neogrid (fiscal nacional).
 2. **Integrações financeiras** — especialidade do fundador: PIX, BolePix, boletos, APIs bancárias (Santander, Bradesco), gateways, sistemas de pagamento.
-3. **IA aplicada com prova concreta** — Argonaut (Claude/OpenAI/Gemini + ArgoCD), ConstVision (pgvector + arquitetura pra NLQ), publicação acadêmica em IA (Computer on The Beach 2021), docência em IA no IFMA.
+3. **IA aplicada com prova concreta** — Argonaut (Claude/OpenAI/Gemini + ArgoCD), ConstVision (pgvector + arquitetura pra NLQ), publicação acadêmica em IA (Computer on The Beach 2021), minicurso de IA ministrado no IFMA.
 4. **Arquitetura sênior** — Java/Spring Boot, microsserviços, observabilidade, DevOps, segurança (OAuth2, JWT, cache distribuído).
 
 O site deve **vender essa combinação rara**, não competir como dev genérico.
@@ -93,7 +93,7 @@ Landing page institucional para apresentar a empresa, serviços e captar cliente
 - Especialista em **Java/Spring Boot**, microsserviços, PostgreSQL
 - Forte em **integrações bancárias**: Santander, Bradesco, PIX, BolePix, Paymee
 - Trabalha atualmente com sistemas financeiros na **CVC Corp** (maior grupo de viagens da AL) — desde fev/2024
-- **Professor no IFMA** — ministra cursos de programação e IA
+- **Experiência didática**: ministrou minicurso de IA no IFMA — Instituto Federal do Maranhão
 - Stack principal: Java, Spring Boot, React, React Native, PostgreSQL, Kubernetes, Docker, ArgoCD
 - **Publicação acadêmica em IA**: análise de sentimentos com SVM/Naive Bayes/redes neurais (Computer on The Beach 2021)
 - Localizado em Santa Luzia, Maranhão
