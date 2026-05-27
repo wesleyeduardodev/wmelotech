@@ -577,9 +577,31 @@ body::before {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
+}
+
+.projects-grid .project-card {
+  grid-column: span 2;
+}
+
+/* Centraliza última linha quando tiver 8 cards (2 sobrando) */
+.projects-grid:has(.project-card:nth-child(8):last-child) .project-card:nth-child(7) {
+  grid-column: 2 / span 2;
+}
+.projects-grid:has(.project-card:nth-child(8):last-child) .project-card:nth-child(8) {
+  grid-column: 4 / span 2;
+}
+
+/* Centraliza única card na última linha (7 cards) */
+.projects-grid:has(.project-card:nth-child(7):last-child) .project-card:nth-child(7) {
+  grid-column: 3 / span 2;
+}
+
+/* 9 cards: matriz perfeita 3x3 (padrão span 2 já cobre, mas explícito pra clareza) */
+.projects-grid:has(.project-card:nth-child(9):last-child) .project-card {
+  grid-column: span 2;
 }
 
 .project-card {
@@ -1336,9 +1358,19 @@ body::before {
 
   .about-visual { height: 300px; }
 
-  .services-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .projects-grid .project-card,
+  .projects-grid:has(.project-card:nth-child(8):last-child) .project-card:nth-child(7),
+  .projects-grid:has(.project-card:nth-child(8):last-child) .project-card:nth-child(8),
+  .projects-grid:has(.project-card:nth-child(7):last-child) .project-card:nth-child(7) {
+    grid-column: 1 / -1;
   }
 
   .diferenciais-grid {
@@ -1663,6 +1695,24 @@ body::before {
     <p class="section-subtitle reveal">Sistemas reais que projetamos e entregamos — do MVP à plataforma multi-tenant.</p>
     <div class="projects-grid">
 
+      <a href="https://mentorconstrucao.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/mentor.png" alt="Mentor Construção"></div>
+            <div class="project-badge">Sustentação</div>
+          </div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>Mentor Construção</h3>
+        <p>Plataforma SaaS de gerenciamento de obras para construtoras. Atuação no desenvolvimento original (2019–2021) e suporte técnico contínuo ao sistema.</p>
+        <div class="project-tags">
+          <span class="tag">Java / Spring</span>
+          <span class="tag">JSF · PrimeFaces</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Sustentação</span>
+        </div>
+      </a>
+
       <a href="https://www.constvision.com.br" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
           <div class="project-card-header-left">
@@ -1678,24 +1728,6 @@ body::before {
           <span class="tag">Spring Boot 4</span>
           <span class="tag">React 19</span>
           <span class="tag">PostgreSQL</span>
-        </div>
-      </a>
-
-      <a href="https://www.fgalvaoeng.com.br" target="_blank" rel="noopener" class="project-card reveal">
-        <div class="project-card-header">
-          <div class="project-card-header-left">
-            <div class="project-logo"><img src="project-logos/fgalvao.svg" alt="F. Galvão Engenharia"></div>
-            <div class="project-badge">Site + Admin</div>
-          </div>
-          <div class="project-link-icon">↗</div>
-        </div>
-        <h3>F. Galvão Engenharia</h3>
-        <p>Portfólio profissional com painel admin completo para gerenciar projetos, mídias e contatos. Upload de imagens via S3 com presigned URLs.</p>
-        <div class="project-tags">
-          <span class="tag">Next.js 16</span>
-          <span class="tag">Prisma</span>
-          <span class="tag">Auth.js</span>
-          <span class="tag">AWS S3</span>
         </div>
       </a>
 
@@ -1717,21 +1749,39 @@ body::before {
         </div>
       </a>
 
-      <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
+      <a href="https://www.codefinances.com.br" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
           <div class="project-card-header-left">
-            <div class="project-logo"><img src="project-logos/argonaut.svg" alt="Argonaut"></div>
-            <div class="project-badge">DevOps + IA</div>
+            <div class="project-logo"><img src="project-logos/code-finances.png" alt="Code Finances"></div>
+            <div class="project-badge">Fintech</div>
           </div>
           <div class="project-link-icon">↗</div>
         </div>
-        <h3>Argonaut</h3>
-        <p>Chat com IA para gerenciar aplicações ArgoCD via linguagem natural. Conecta Claude, OpenAI e Gemini ao Kubernetes com streaming em tempo real (SSE).</p>
+        <h3>Code Finances</h3>
+        <p>Plataforma SaaS de gestão financeira pessoal com dashboard unificado: contas bancárias, cartões de crédito, categorização de gastos e controle mensal.</p>
         <div class="project-tags">
-          <span class="tag">Next.js 16</span>
-          <span class="tag">Claude API</span>
-          <span class="tag">ArgoCD</span>
-          <span class="tag">AES-256</span>
+          <span class="tag">SaaS</span>
+          <span class="tag">Fintech</span>
+          <span class="tag">Dashboard</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </a>
+
+      <a href="https://achei-pedreiro-site-production.up.railway.app/" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/achei-pedreiro.png" alt="Achei Pedreiro"></div>
+            <div class="project-badge">Marketplace</div>
+          </div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>Achei Pedreiro</h3>
+        <p>Marketplace que conecta trabalhadores da construção civil com empresas contratantes. Três tipos de usuário com múltiplos papéis simultâneos.</p>
+        <div class="project-tags">
+          <span class="tag">Mobile</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Marketplace</span>
+          <span class="tag">PostgreSQL</span>
         </div>
       </a>
 
@@ -1753,21 +1803,57 @@ body::before {
         </div>
       </a>
 
-      <a href="https://achei-pedreiro-site-production.up.railway.app/" target="_blank" rel="noopener" class="project-card reveal">
+      <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
           <div class="project-card-header-left">
-            <div class="project-logo"><img src="project-logos/achei-pedreiro.png" alt="Achei Pedreiro"></div>
-            <div class="project-badge">Marketplace</div>
+            <div class="project-logo"><img src="project-logos/argonaut.svg" alt="Argonaut"></div>
+            <div class="project-badge">DevOps + IA</div>
           </div>
           <div class="project-link-icon">↗</div>
         </div>
-        <h3>Achei Pedreiro</h3>
-        <p>Marketplace que conecta trabalhadores da construção civil com empresas contratantes. Três tipos de usuário com múltiplos papéis simultâneos.</p>
+        <h3>Argonaut</h3>
+        <p>Chat com IA para gerenciar aplicações ArgoCD via linguagem natural. Conecta Claude, OpenAI e Gemini ao Kubernetes com streaming em tempo real (SSE).</p>
         <div class="project-tags">
-          <span class="tag">Mobile</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">Marketplace</span>
-          <span class="tag">PostgreSQL</span>
+          <span class="tag">Next.js 16</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">ArgoCD</span>
+          <span class="tag">AES-256</span>
+        </div>
+      </a>
+
+      <a href="https://ia4devs-ifma.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/ia4devs.svg" alt="IA4Devs"></div>
+            <div class="project-badge">Edu Tech</div>
+          </div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>IA4Devs</h3>
+        <p>Landing page e captação de inscrições para o minicurso de Inteligência Artificial para programadores no IFMA — Departamento de Computação (DComp).</p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">Landing</span>
+          <span class="tag">IFMA</span>
+          <span class="tag">IA · Edu</span>
+        </div>
+      </a>
+
+      <a href="https://www.fgalvaoeng.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/fgalvao.svg" alt="F. Galvão Engenharia"></div>
+            <div class="project-badge">Site + Admin</div>
+          </div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>F. Galvão Engenharia</h3>
+        <p>Portfólio profissional com painel admin completo para gerenciar projetos, mídias e contatos. Upload de imagens via S3 com presigned URLs.</p>
+        <div class="project-tags">
+          <span class="tag">Next.js 16</span>
+          <span class="tag">Prisma</span>
+          <span class="tag">Auth.js</span>
+          <span class="tag">AWS S3</span>
         </div>
       </a>
 
