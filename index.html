@@ -10,6 +10,11 @@
 <meta property="og:description" content="Desenvolvimento de software sob medida, consultoria em TI, integrações bancárias e soluções tecnológicas para sua empresa.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://wmelotech.com.br/logo.png">
+<meta property="og:image:width" content="1500">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wmelotech.com.br/logo.png">
 <link rel="canonical" href="https://wmelotech.com.br">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -131,31 +136,20 @@ body::before {
   letter-spacing: -0.02em;
 }
 
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--accent);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 0.85rem;
-  color: var(--bg-primary);
-  position: relative;
+.logo-svg {
+  height: 44px;
+  width: auto;
+  display: block;
+  transition: filter 0.3s var(--transition);
 }
 
-.logo-icon::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 11px;
-  background: var(--accent);
-  opacity: 0.2;
-  z-index: -1;
+.logo:hover .logo-svg {
+  filter: drop-shadow(0 0 12px var(--accent-glow));
 }
 
-.logo span { color: var(--accent); }
+.nav.scrolled .logo-svg {
+  height: 38px;
+}
 
 .nav-links {
   display: flex;
@@ -968,6 +962,8 @@ body::before {
   .hero-stats { gap: 1.5rem; }
   .stat-number { font-size: 1.6rem; }
   .contact-box { padding: 2.5rem 1.5rem; }
+  .logo-svg { height: 36px; }
+  .nav.scrolled .logo-svg { height: 32px; }
 }
 </style>
 </head>
@@ -978,9 +974,19 @@ body::before {
 <!-- ========== NAVIGATION ========== -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-icon">W</div>
-      WMelo<span>Tech</span>
+    <a href="#" class="logo" aria-label="WMelo Tech — voltar ao topo">
+      <svg class="logo-svg" viewBox="0 0 300 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="8" width="48" height="48" rx="11" fill="none" stroke="#00d4aa" stroke-width="2.2"/>
+        <polyline points="12,20 19,46 26,28 33,46 40,20" fill="none" stroke="#00d4aa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="20" r="2.8" fill="#00d4aa"/>
+        <circle cx="19" cy="46" r="2.8" fill="#00d4aa"/>
+        <circle cx="26" cy="28" r="2.8" fill="#00d4aa"/>
+        <circle cx="33" cy="46" r="2.8" fill="#00d4aa"/>
+        <circle cx="40" cy="20" r="2.8" fill="#00d4aa"/>
+        <text x="64" y="42" font-family="Outfit, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.02em">
+          <tspan fill="#e8e8ef">WMelo</tspan><tspan fill="#00d4aa" dx="6">Tech</tspan>
+        </text>
+      </svg>
     </a>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
