@@ -13,6 +13,36 @@
 <link rel="canonical" href="https://wmelotech.com.br">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "WMelo Tech",
+  "legalName": "W E DE O MELO - TECNOLOGIA ME",
+  "image": "https://wmelotech.com.br/og.png",
+  "url": "https://wmelotech.com.br",
+  "telephone": "+55-98-98165-0805",
+  "email": "wesleyeduardo.dev@gmail.com",
+  "taxID": "65.736.086/0001-60",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua da Mangueira, S/N, Centro",
+    "addressLocality": "Santa Luzia",
+    "addressRegion": "MA",
+    "postalCode": "65390-000",
+    "addressCountry": "BR"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Wesley Eduardo de Oliveira Melo",
+    "jobTitle": "Senior Software Engineer",
+    "sameAs": "https://www.linkedin.com/in/wesley-eduardo-8a1066169/"
+  },
+  "description": "Desenvolvimento de software sob medida, integrações financeiras, consultoria em TI, cloud, DevOps e treinamentos.",
+  "areaServed": "BR",
+  "knowsAbout": ["Java","Spring Boot","React","PostgreSQL","Kubernetes","Docker","ArgoCD","APIs Bancárias","PIX","Microsserviços","Inteligência Artificial"]
+}
+</script>
 <style>
 /* ========== CSS VARIABLES ========== */
 :root {
@@ -548,71 +578,183 @@ body::before {
   font-weight: 300;
 }
 
-/* ========== TESTIMONIALS ========== */
-.testimonials { background: var(--bg-secondary); }
+/* ========== PROJECTS ========== */
+.projects { background: var(--bg-secondary); }
 
-.testimonials-grid {
+.projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
 }
 
-.testimonial-card {
+.project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 2rem;
+  transition: all 0.4s var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  color: inherit;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.project-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid var(--border-accent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-link-icon {
+  font-size: 1.1rem;
+  color: var(--text-muted);
   transition: all 0.3s var(--transition);
 }
 
-.testimonial-card:hover {
-  border-color: var(--border-accent);
+.project-card:hover .project-link-icon {
+  color: var(--accent);
+  transform: translate(2px, -2px);
 }
 
-.testimonial-stars {
-  color: #ffb800;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  margin-bottom: 1.2rem;
-}
-
-.testimonial-text {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.testimonial-avatar {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent), #0066ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.project-card h3 {
+  font-size: 1.25rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--bg-primary);
+  letter-spacing: -0.01em;
+  margin-top: 0.2rem;
 }
 
-.testimonial-name {
-  font-weight: 600;
+.project-card p {
   font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-weight: 300;
+  flex: 1;
 }
 
-.testimonial-role {
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.project-tags .tag {
+  font-size: 0.7rem;
+  padding: 0.3rem 0.7rem;
+}
+
+/* ========== TRAJETÓRIA ========== */
+.trajetoria { background: var(--bg-primary); }
+
+.timeline {
+  margin-top: 3.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--bg-primary), 0 0 20px var(--accent-glow);
+  transition: all 0.3s var(--transition);
+}
+
+.timeline-item:hover .timeline-marker {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg-primary), 0 0 30px var(--accent-dim);
+}
+
+.timeline-content {
+  padding-left: 0.5rem;
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 0.1rem;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-company {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+
+.timeline-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-weight: 300;
 }
 
 /* ========== CTA / CONTACT ========== */
@@ -803,9 +945,12 @@ body::before {
   .about-visual { height: 300px; }
 
   .services-grid,
-  .testimonials-grid {
+  .projects-grid {
     grid-template-columns: 1fr;
   }
+
+  .timeline { padding-left: 1.5rem; }
+  .timeline-marker { left: -1.5rem; }
 
   .contact-info {
     flex-direction: column;
@@ -840,7 +985,8 @@ body::before {
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
       <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
     </ul>
     <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')" aria-label="Menu">☰</button>
@@ -872,15 +1018,15 @@ body::before {
     <div class="hero-stats">
       <div>
         <div class="stat-number">10+</div>
-        <div class="stat-label">Anos de experiência</div>
+        <div class="stat-label">Anos no mercado</div>
       </div>
       <div>
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Projetos entregues</div>
+        <div class="stat-number">7</div>
+        <div class="stat-label">Projetos no portfólio</div>
       </div>
       <div>
-        <div class="stat-number">99%</div>
-        <div class="stat-label">Uptime garantido</div>
+        <div class="stat-number">4</div>
+        <div class="stat-label">Passagens corporativas</div>
       </div>
     </div>
   </div>
@@ -977,46 +1123,166 @@ body::before {
   </div>
 </section>
 
-<!-- ========== TESTIMONIALS ========== -->
-<section class="section testimonials" id="depoimentos">
+<!-- ========== PROJECTS ========== -->
+<section class="section projects" id="projetos">
   <div class="container">
-    <div class="section-label reveal">// depoimentos</div>
-    <h2 class="section-title reveal">O que dizem nossos clientes</h2>
-    <p class="section-subtitle reveal">Resultados que falam por si.</p>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Profissional excepcional. Entregou uma integração bancária complexa no prazo e com qualidade impecável. Recomendo fortemente."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">RC</div>
-          <div>
-            <div class="testimonial-name">Roberto C.</div>
-            <div class="testimonial-role">CTO — Fintech</div>
-          </div>
+    <div class="section-label reveal">// portfólio</div>
+    <h2 class="section-title reveal">Projetos em produção</h2>
+    <p class="section-subtitle reveal">Sistemas reais que projetamos e entregamos — do MVP à plataforma multi-tenant.</p>
+    <div class="projects-grid">
+
+      <a href="https://www.constvision.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-badge">SaaS</div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>ConstVision</h3>
+        <p>Plataforma SaaS multi-tenant de ingestão, processamento e visualização de dados para construção civil. Pipeline Bronze→Silver→Gold com schema-per-tenant.</p>
+        <div class="project-tags">
+          <span class="tag">Java 25</span>
+          <span class="tag">Spring Boot 4</span>
+          <span class="tag">React 19</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </a>
+
+      <a href="https://www.fgalvaoeng.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-badge">Site + Admin</div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>F. Galvão Engenharia</h3>
+        <p>Portfólio profissional com painel admin completo para gerenciar projetos, mídias e contatos. Upload de imagens via S3 com presigned URLs.</p>
+        <div class="project-tags">
+          <span class="tag">Next.js 16</span>
+          <span class="tag">Prisma</span>
+          <span class="tag">Auth.js</span>
+          <span class="tag">AWS S3</span>
+        </div>
+      </a>
+
+      <a href="https://wesley.devquote.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-badge">Web App</div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>DevQuote</h3>
+        <p>Gestão de tarefas, entregas e faturamento para devs freelance. Sistema de permissões granulares em 4 camadas (Profile / Screen / Resource / Field).</p>
+        <div class="project-tags">
+          <span class="tag">React + TS</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">JWT</span>
+          <span class="tag">RBAC</span>
+        </div>
+      </a>
+
+      <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-badge">DevOps + IA</div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>Argonaut</h3>
+        <p>Chat com IA para gerenciar aplicações ArgoCD via linguagem natural. Conecta Claude, OpenAI e Gemini ao Kubernetes com streaming em tempo real (SSE).</p>
+        <div class="project-tags">
+          <span class="tag">Next.js 16</span>
+          <span class="tag">Claude API</span>
+          <span class="tag">ArgoCD</span>
+          <span class="tag">AES-256</span>
+        </div>
+      </a>
+
+      <a href="https://planfin-blue.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-badge">Web App</div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>PlanFin</h3>
+        <p>Planejamento financeiro mensal com 2 períodos por mês, lançamentos recorrentes automatizados, categorização e gráficos de evolução de saldos.</p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">NextAuth</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Prisma</span>
+        </div>
+      </a>
+
+      <a href="https://achei-pedreiro-site-production.up.railway.app/" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-badge">Marketplace</div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>Achei Pedreiro</h3>
+        <p>Marketplace que conecta trabalhadores da construção civil com empresas contratantes. Três tipos de usuário com múltiplos papéis simultâneos.</p>
+        <div class="project-tags">
+          <span class="tag">Mobile</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Marketplace</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRAJETÓRIA ========== -->
+<section class="section trajetoria" id="trajetoria">
+  <div class="container">
+    <div class="section-label reveal">// trajetória</div>
+    <h2 class="section-title reveal">Mais de 10 anos construindo software</h2>
+    <p class="section-subtitle reveal">Da pesquisa acadêmica à engenharia de sistemas críticos em produção.</p>
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">fev/2024 — presente</div>
+          <h3>Desenvolvedor Java Sênior</h3>
+          <div class="timeline-company">CVC Corp — maior grupo de viagens da América Latina</div>
+          <p>Sistemas financeiros em arquitetura distribuída. Spring Boot, microsserviços, Redis distribuído, OAuth2/JWT, Kafka. DevOps com Jenkins, Docker, Kubernetes. Observabilidade com Grafana e Dynatrace.</p>
         </div>
       </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"A WMelo Tech transformou nosso sistema legado em uma arquitetura moderna e escalável. Atenção aos detalhes impressionante."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">AS</div>
-          <div>
-            <div class="testimonial-name">Ana S.</div>
-            <div class="testimonial-role">Gerente de Projetos</div>
-          </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">set/2022 — fev/2024</div>
+          <h3>Desenvolvedor Java Fullstack Pleno</h3>
+          <div class="timeline-company">Globalweb Corp — cliente Caixa Econômica Federal</div>
+          <p>APIs do produto Saque-Aniversário do FGTS — serviços que impactam milhões de trabalhadores em todo o Brasil. Quarkus/Spring, Oracle, Keycloak, Angular no frontend.</p>
         </div>
       </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Treinamento prático e direto ao ponto. A equipe saiu capacitada e confiante para tocar os projetos internos de desenvolvimento."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MF</div>
-          <div>
-            <div class="testimonial-name">Marcos F.</div>
-            <div class="testimonial-role">Diretor de Tecnologia</div>
-          </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">mar/2021 — set/2022</div>
+          <h3>Desenvolvedor Java</h3>
+          <div class="timeline-company">Neogrid — solução fiscal nacional</div>
+          <p>Notas fiscais eletrônicas, integração com SEFAZ. Projeto autoral: automação de anexos do Outlook via Azure AD + Microsoft Graph API — entregue do zero ao deploy.</p>
         </div>
       </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">jan/2019 — abr/2021</div>
+          <h3>Desenvolvedor Java Fullstack</h3>
+          <div class="timeline-company">Mentor Construção — plataforma para construtoras</div>
+          <p>Plataforma web/mobile para o setor de construção civil. JSF + PrimeFaces, Spring, PostgreSQL, Hibernate, JasperReports. Integração web ↔ mobile via APIs REST.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-period">2020 — 2021</div>
+          <h3>Pesquisa em IA & Publicação Acadêmica</h3>
+          <div class="timeline-company">IFMA — Instituto Federal do Maranhão</div>
+          <p>Análise de sentimentos em tweets em pt-BR com Python, Naive Bayes, SVM e redes neurais. Artigo publicado no <em>Computer on The Beach 2021</em>.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
