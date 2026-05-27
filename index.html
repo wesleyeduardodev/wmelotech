@@ -620,6 +620,41 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.8rem;
+}
+
+.project-card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.project-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s var(--transition);
+}
+
+.project-card:hover .project-logo {
+  border-color: var(--border-accent);
+  transform: scale(1.05);
+}
+
+.project-logo img,
+.project-logo svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .project-badge {
@@ -1604,7 +1639,10 @@ body::before {
 
       <a href="https://www.constvision.com.br" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
-          <div class="project-badge">SaaS</div>
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/constvision.png" alt="ConstVision"></div>
+            <div class="project-badge">SaaS</div>
+          </div>
           <div class="project-link-icon">↗</div>
         </div>
         <h3>ConstVision</h3>
@@ -1619,7 +1657,10 @@ body::before {
 
       <a href="https://www.fgalvaoeng.com.br" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
-          <div class="project-badge">Site + Admin</div>
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/fgalvao.svg" alt="F. Galvão Engenharia"></div>
+            <div class="project-badge">Site + Admin</div>
+          </div>
           <div class="project-link-icon">↗</div>
         </div>
         <h3>F. Galvão Engenharia</h3>
@@ -1634,7 +1675,10 @@ body::before {
 
       <a href="https://wesley.devquote.com.br" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
-          <div class="project-badge">Web App</div>
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/devquote.svg" alt="DevQuote"></div>
+            <div class="project-badge">Web App</div>
+          </div>
           <div class="project-link-icon">↗</div>
         </div>
         <h3>DevQuote</h3>
@@ -1649,7 +1693,10 @@ body::before {
 
       <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
-          <div class="project-badge">DevOps + IA</div>
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/argonaut.svg" alt="Argonaut"></div>
+            <div class="project-badge">DevOps + IA</div>
+          </div>
           <div class="project-link-icon">↗</div>
         </div>
         <h3>Argonaut</h3>
@@ -1664,7 +1711,10 @@ body::before {
 
       <a href="https://planfin-blue.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
-          <div class="project-badge">Web App</div>
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/planfin.svg" alt="PlanFin"></div>
+            <div class="project-badge">Web App</div>
+          </div>
           <div class="project-link-icon">↗</div>
         </div>
         <h3>PlanFin</h3>
@@ -1679,7 +1729,10 @@ body::before {
 
       <a href="https://achei-pedreiro-site-production.up.railway.app/" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
-          <div class="project-badge">Marketplace</div>
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/achei-pedreiro.png" alt="Achei Pedreiro"></div>
+            <div class="project-badge">Marketplace</div>
+          </div>
           <div class="project-link-icon">↗</div>
         </div>
         <h3>Achei Pedreiro</h3>
