@@ -895,6 +895,332 @@ body::before {
   outline-offset: 2px;
 }
 
+/* ========== DIFERENCIAIS ========== */
+.diferenciais { background: var(--bg-primary); }
+
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.diferencial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s var(--transition);
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.diferencial-card:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.diferencial-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-accent);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.diferencial-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.diferencial-body p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ========== FEATURED SERVICE CARD ========== */
+.service-card--featured {
+  border-color: var(--border-accent);
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(0, 212, 170, 0.05) 100%);
+  position: relative;
+}
+
+.service-card--featured::before {
+  opacity: 1 !important;
+}
+
+.service-card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid var(--border-accent);
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ========== IA SECTION ========== */
+.ia-section {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.ia-orb {
+  position: absolute;
+  top: 10%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  background: var(--accent);
+  filter: blur(180px);
+  opacity: 0.06;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ia-authority-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.ia-authority-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: all 0.4s var(--transition);
+}
+
+.ia-authority-card:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.ia-authority-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid var(--border-accent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  align-self: flex-start;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.ia-authority-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
+  letter-spacing: -0.01em;
+}
+
+.ia-authority-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-weight: 300;
+  flex: 1;
+}
+
+.ia-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-top: 0.5rem;
+  transition: opacity 0.3s;
+}
+
+.ia-link:hover {
+  opacity: 0.75;
+}
+
+.ia-services-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.ia-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  position: relative;
+}
+
+.ia-service {
+  background: rgba(0, 212, 170, 0.03);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s var(--transition);
+}
+
+.ia-service:hover {
+  background: var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.ia-service-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.ia-service h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.ia-service p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+/* ========== TRUST STRIP (logos) ========== */
+.trust-strip {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.trust-strip-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+  text-transform: lowercase;
+}
+
+.trust-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+
+.trust-logo {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  transition: color 0.3s;
+  cursor: default;
+}
+
+.trust-logo:hover {
+  color: var(--accent);
+}
+
+/* ========== PROCESSO ========== */
+.processo { background: var(--bg-secondary); }
+
+.processo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.processo-grid::before {
+  content: '';
+  position: absolute;
+  top: 56px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-accent), var(--border-accent), transparent);
+  z-index: 0;
+}
+
+.processo-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.8rem 1.3rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s var(--transition);
+}
+
+.processo-step:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.processo-number {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-accent);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.processo-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.processo-step p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
 /* ========== SCROLL ANIMATIONS ========== */
 .reveal {
   opacity: 0;
@@ -943,6 +1269,26 @@ body::before {
     grid-template-columns: 1fr;
   }
 
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ia-authority-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ia-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .processo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .processo-grid::before { display: none; }
+
+  .trust-logos { gap: 1.5rem; }
+
   .timeline { padding-left: 1.5rem; }
   .timeline-marker { left: -1.5rem; }
 
@@ -964,6 +1310,12 @@ body::before {
   .contact-box { padding: 2.5rem 1.5rem; }
   .logo-svg { height: 36px; }
   .nav.scrolled .logo-svg { height: 32px; }
+
+  .ia-services-grid { grid-template-columns: 1fr; }
+  .processo-grid { grid-template-columns: 1fr; }
+  .diferencial-card { flex-direction: column; }
+  .trust-logo { font-size: 0.85rem; }
+  .trust-logos { gap: 1rem 1.5rem; }
 }
 </style>
 </head>
@@ -991,6 +1343,7 @@ body::before {
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#ia">IA</a></li>
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="#trajetoria">Trajetória</a></li>
       <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
@@ -1088,6 +1441,45 @@ body::before {
   </div>
 </section>
 
+<!-- ========== DIFERENCIAIS ========== -->
+<section class="section diferenciais" id="diferenciais">
+  <div class="container">
+    <div class="section-label reveal">// por que wmelo tech</div>
+    <h2 class="section-title reveal">Engenharia que combina escala, IA e expertise financeira</h2>
+    <p class="section-subtitle reveal">Não somos uma dev shop genérica. Somos especialistas em sistemas críticos, IA aplicada e integrações que movem dinheiro.</p>
+    <div class="diferenciais-grid">
+      <div class="diferencial-card reveal">
+        <div class="diferencial-icon">⚡</div>
+        <div class="diferencial-body">
+          <h3>Sistemas críticos em produção</h3>
+          <p>Passagens por CVC Corp (maior grupo de viagens da América Latina), Caixa Econômica via FGTS e Neogrid. Engenharia validada por milhões de usuários reais.</p>
+        </div>
+      </div>
+      <div class="diferencial-card reveal">
+        <div class="diferencial-icon">🧠</div>
+        <div class="diferencial-body">
+          <h3>IA aplicada com autoridade</h3>
+          <p>Produto autoral integrando Claude, GPT e Gemini (Argonaut), publicação acadêmica em IA (Computer on The Beach 2021) e docência ativa no IFMA. Não é buzzword.</p>
+        </div>
+      </div>
+      <div class="diferencial-card reveal">
+        <div class="diferencial-icon">🏦</div>
+        <div class="diferencial-body">
+          <h3>Integrações financeiras na veia</h3>
+          <p>PIX, BolePix, boletos, gateways e APIs bancárias (Santander, Bradesco). Quando a integração precisa funcionar sem erro, esse é o nosso terreno.</p>
+        </div>
+      </div>
+      <div class="diferencial-card reveal">
+        <div class="diferencial-icon">📐</div>
+        <div class="diferencial-body">
+          <h3>Engenharia sênior, não freelance</h3>
+          <p>15+ anos de mercado, arquitetura distribuída, OAuth2/JWT, observabilidade e DevOps maduro. Código que outros engenheiros conseguem manter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ========== SERVICES ========== -->
 <section class="section" id="servicos">
   <div class="container">
@@ -1095,20 +1487,21 @@ body::before {
     <h2 class="section-title reveal">Serviços</h2>
     <p class="section-subtitle reveal">Soluções de ponta a ponta para o seu negócio digital.</p>
     <div class="services-grid">
+      <div class="service-card service-card--featured reveal">
+        <div class="service-card-badge">Nossa especialidade</div>
+        <div class="service-icon">🏦</div>
+        <h3>Integrações Financeiras</h3>
+        <p>Integração com APIs bancárias (Santander, Bradesco), PIX, boletos, BolePix, gateways de pagamento e sistemas financeiros com segurança e confiabilidade comprovadas.</p>
+      </div>
       <div class="service-card reveal">
         <div class="service-icon">⚡</div>
         <h3>Desenvolvimento Sob Medida</h3>
         <p>Sistemas, APIs e plataformas construídas do zero, seguindo as melhores práticas de engenharia de software e arquitetura limpa.</p>
       </div>
       <div class="service-card reveal">
-        <div class="service-icon">🏦</div>
-        <h3>Integrações Financeiras</h3>
-        <p>Integração com APIs bancárias (PIX, boletos, BolePix), gateways de pagamento e sistemas financeiros com segurança e confiabilidade.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🧠</div>
-        <h3>Consultoria em TI</h3>
-        <p>Análise de arquitetura, definição de stack tecnológico, otimização de performance e estratégia de modernização de sistemas legados.</p>
+        <div class="service-icon">🤖</div>
+        <h3>Soluções com IA</h3>
+        <p>Agentes inteligentes, RAG, integração com Claude/GPT/Gemini e automação de processos. <a href="#ia" style="color:var(--accent);">Ver autoridade técnica ↓</a></p>
       </div>
       <div class="service-card reveal">
         <div class="service-icon">☁️</div>
@@ -1116,14 +1509,69 @@ body::before {
         <p>Deploy automatizado, CI/CD, Kubernetes, Docker e infraestrutura em nuvem para garantir alta disponibilidade e escalabilidade.</p>
       </div>
       <div class="service-card reveal">
-        <div class="service-icon">🤖</div>
-        <h3>Inteligência Artificial</h3>
-        <p>Integração de IA em sistemas existentes: chatbots, automação de processos, agentes inteligentes e análise preditiva de dados para potencializar seu negócio.</p>
+        <div class="service-icon">🧠</div>
+        <h3>Consultoria em TI</h3>
+        <p>Análise de arquitetura, definição de stack tecnológico, otimização de performance e estratégia de modernização de sistemas legados.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-icon">🎓</div>
         <h3>Treinamentos</h3>
-        <p>Capacitação em programação, IA, ferramentas de desenvolvimento e tecnologias modernas para equipes e profissionais.</p>
+        <p>Capacitação em programação, IA aplicada, ferramentas de desenvolvimento e tecnologias modernas para equipes e profissionais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== IA & AUTOMAÇÃO ========== -->
+<section class="section ia-section" id="ia">
+  <div class="ia-orb"></div>
+  <div class="container">
+    <div class="section-label reveal">// ia & automação</div>
+    <h2 class="section-title reveal">Inteligência Artificial aplicada<br>com <span style="color:var(--accent)">autoridade técnica</span></h2>
+    <p class="section-subtitle reveal">Não é hype. São produtos em produção, pesquisa acadêmica publicada e docência ativa em IA.</p>
+
+    <div class="ia-authority-grid">
+      <div class="ia-authority-card reveal">
+        <div class="ia-authority-tag">Produto autoral</div>
+        <h3>Argonaut</h3>
+        <p>Chat com IA para gerenciar aplicações ArgoCD via linguagem natural. Integração com Claude, OpenAI e Gemini, streaming em tempo real (SSE) e criptografia AES-256-GCM.</p>
+        <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="ia-link">Ver projeto →</a>
+      </div>
+      <div class="ia-authority-card reveal">
+        <div class="ia-authority-tag">Pesquisa acadêmica</div>
+        <h3>Publicação científica</h3>
+        <p>"Utilizando Análise de Sentimentos e SVM na Classificação de Tweets Depressivos" — <em>Computer on The Beach 2021</em>. Python, Naive Bayes, redes neurais e PLN aplicados.</p>
+        <a href="https://periodicos.univali.br/index.php/acotb/article/view/17388" target="_blank" rel="noopener" class="ia-link">Ler artigo →</a>
+      </div>
+      <div class="ia-authority-card reveal">
+        <div class="ia-authority-tag">Docência</div>
+        <h3>Professor de IA no IFMA</h3>
+        <p>Ministra cursos de programação e Inteligência Artificial no Instituto Federal do Maranhão. Capacidade didática somada à experiência prática em produção.</p>
+        <a href="#contato" class="ia-link">Treinamentos sob medida →</a>
+      </div>
+    </div>
+
+    <h3 class="ia-services-title reveal">O que entregamos com IA</h3>
+    <div class="ia-services-grid">
+      <div class="ia-service reveal">
+        <div class="ia-service-icon">🤖</div>
+        <h4>Agentes inteligentes</h4>
+        <p>Agentes autônomos que executam tarefas em sistemas reais — não são chatbots genéricos.</p>
+      </div>
+      <div class="ia-service reveal">
+        <div class="ia-service-icon">🔍</div>
+        <h4>RAG e busca semântica</h4>
+        <p>Retrieval-Augmented Generation com pgvector sobre suas bases de dados internas.</p>
+      </div>
+      <div class="ia-service reveal">
+        <div class="ia-service-icon">🔌</div>
+        <h4>Integração Claude · GPT · Gemini</h4>
+        <p>LLMs acoplados a sistemas existentes via API. Tool use, prompt caching e streaming.</p>
+      </div>
+      <div class="ia-service reveal">
+        <div class="ia-service-icon">⚙️</div>
+        <h4>Automação com LLMs</h4>
+        <p>Análise de documentos, classificação, extração de dados e workflows automáticos.</p>
       </div>
     </div>
   </div>
@@ -1299,6 +1747,54 @@ body::before {
         </div>
       </div>
 
+    </div>
+
+    <div class="trust-strip reveal">
+      <p class="trust-strip-label">// tecnologia construída por engenheiro com passagens por</p>
+      <div class="trust-logos">
+        <span class="trust-logo">CVC Corp</span>
+        <span class="trust-logo">Caixa Econômica</span>
+        <span class="trust-logo">Globalweb</span>
+        <span class="trust-logo">Neogrid</span>
+        <span class="trust-logo">Mentor Construção</span>
+        <span class="trust-logo">IFMA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMO TRABALHAMOS ========== -->
+<section class="section processo" id="processo">
+  <div class="container">
+    <div class="section-label reveal">// como trabalhamos</div>
+    <h2 class="section-title reveal">Processo simples, entrega previsível</h2>
+    <p class="section-subtitle reveal">Cinco etapas que garantem visibilidade do início ao deploy — e suporte depois.</p>
+    <div class="processo-grid">
+      <div class="processo-step reveal">
+        <div class="processo-number">01</div>
+        <h3>Descoberta</h3>
+        <p>Entendemos o problema, restrições técnicas, contexto de negócio e quem usa o sistema.</p>
+      </div>
+      <div class="processo-step reveal">
+        <div class="processo-number">02</div>
+        <h3>Proposta</h3>
+        <p>Spec técnica detalhada, escopo claro, prazo realista e valor sem surpresa.</p>
+      </div>
+      <div class="processo-step reveal">
+        <div class="processo-number">03</div>
+        <h3>Sprint</h3>
+        <p>Desenvolvimento em ciclos curtos com demos periódicas. Você acompanha o progresso.</p>
+      </div>
+      <div class="processo-step reveal">
+        <div class="processo-number">04</div>
+        <h3>Entrega</h3>
+        <p>Deploy em produção, documentação técnica, transferência de conhecimento e treinamento da equipe.</p>
+      </div>
+      <div class="processo-step reveal">
+        <div class="processo-number">05</div>
+        <h3>Suporte</h3>
+        <p>Garantia pós-entrega, ajustes finos e plano de evolução. Não desaparecemos após o go-live.</p>
+      </div>
     </div>
   </div>
 </section>
