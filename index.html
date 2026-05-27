@@ -850,16 +850,27 @@ body::before {
   align-items: center;
 }
 
-.footer-copy {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-.footer-copy span { color: var(--accent); }
+.footer-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
 
 .footer-links {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -1410,7 +1421,7 @@ body::before {
             &nbsp;&nbsp;nome: <span class="string">"WMelo Tech"</span>,<br>
             &nbsp;&nbsp;fundador: <span class="string">"Wesley Melo"</span>,<br>
             &nbsp;&nbsp;foco: <span class="string">"Soluções em TI"</span>,<br>
-            &nbsp;&nbsp;experiencia: <span class="string">"10+ anos"</span>,<br>
+            &nbsp;&nbsp;experiencia: <span class="string">"15+ anos"</span>,<br>
             &nbsp;&nbsp;stack: [<span class="string">"Java"</span>, <span class="string">"Spring"</span>,<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"React"</span>, <span class="string">"PostgreSQL"</span>],<br>
             &nbsp;&nbsp;status: <span class="string">"🟢 disponível"</span><br>
@@ -1499,6 +1510,11 @@ body::before {
         <p>Sistemas, APIs e plataformas construídas do zero, seguindo as melhores práticas de engenharia de software e arquitetura limpa.</p>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon">📱</div>
+        <h3>Aplicativos Mobile</h3>
+        <p>Apps nativos e híbridos para iOS e Android com React Native. Da concepção ao publish nas lojas, com backend integrado e sincronização offline.</p>
+      </div>
+      <div class="service-card reveal">
         <div class="service-icon">🤖</div>
         <h3>Soluções com IA</h3>
         <p>Agentes inteligentes, RAG, integração com Claude/GPT/Gemini e automação de processos. <a href="#ia" style="color:var(--accent);">Ver autoridade técnica ↓</a></p>
@@ -1512,11 +1528,6 @@ body::before {
         <div class="service-icon">🧠</div>
         <h3>Consultoria em TI</h3>
         <p>Análise de arquitetura, definição de stack tecnológico, otimização de performance e estratégia de modernização de sistemas legados.</p>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon">🎓</div>
-        <h3>Treinamentos</h3>
-        <p>Capacitação em programação, IA aplicada, ferramentas de desenvolvimento e tecnologias modernas para equipes e profissionais.</p>
       </div>
     </div>
   </div>
@@ -1833,12 +1844,28 @@ body::before {
 <!-- ========== FOOTER ========== -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-copy">
-      © 2026 <span>WMelo Tech</span> — CNPJ 65.736.086/0001-60
+    <div class="footer-brand">
+      <svg class="footer-logo" viewBox="0 0 300 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="8" width="48" height="48" rx="11" fill="none" stroke="#00d4aa" stroke-width="2.2"/>
+        <polyline points="12,20 19,46 26,28 33,46 40,20" fill="none" stroke="#00d4aa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="20" r="2.8" fill="#00d4aa"/>
+        <circle cx="19" cy="46" r="2.8" fill="#00d4aa"/>
+        <circle cx="26" cy="28" r="2.8" fill="#00d4aa"/>
+        <circle cx="33" cy="46" r="2.8" fill="#00d4aa"/>
+        <circle cx="40" cy="20" r="2.8" fill="#00d4aa"/>
+        <text x="64" y="42" font-family="Outfit, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.02em">
+          <tspan fill="#e8e8ef">WMelo</tspan><tspan fill="#00d4aa" dx="6">Tech</tspan>
+        </text>
+      </svg>
+      <div class="footer-copy">© 2026 — CNPJ 65.736.086/0001-60</div>
     </div>
     <div class="footer-links">
-      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
+      <a href="#ia">IA</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#processo">Processo</a>
       <a href="#contato">Contato</a>
     </div>
   </div>
