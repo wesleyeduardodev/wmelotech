@@ -1090,12 +1090,41 @@ body::before {
   pointer-events: none;
 }
 
+.aviso-manutencao {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 200;
+  max-width: calc(100% - 2rem);
+  padding: 0.9rem 1.3rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-accent);
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+
+.aviso-manutencao.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 .ia-authority-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
   position: relative;
+}
+
+.ia-authority-card--destaque {
+  grid-column: 1 / -1;
+  border-color: var(--border-accent);
 }
 
 .ia-authority-card {
@@ -1563,7 +1592,7 @@ body::before {
         <div class="diferencial-icon">🧠</div>
         <div class="diferencial-body">
           <h3>IA aplicada com autoridade</h3>
-          <p>Produto autoral integrando Claude, GPT e Gemini (Argonaut), publicação acadêmica em IA (Computer on The Beach 2021) e minicurso de IA ministrado no IFMA. Não é buzzword.</p>
+          <p>Produtos autorais com Claude, GPT e Gemini (Mês em Ordem em produção e Argonaut), publicação acadêmica em IA (Computer on The Beach 2021) e minicurso de IA ministrado no IFMA. Não é buzzword.</p>
         </div>
       </div>
       <div class="diferencial-card reveal">
@@ -1635,6 +1664,12 @@ body::before {
     <p class="section-subtitle reveal">Não é hype. São produtos em produção, pesquisa acadêmica publicada e experiência didática real.</p>
 
     <div class="ia-authority-grid">
+      <div class="ia-authority-card ia-authority-card--destaque reveal">
+        <div class="ia-authority-tag">Produto IA em produção</div>
+        <h3>Mês em Ordem</h3>
+        <p>Assistente financeiro com Claude que conversa em linguagem simples e age nos dados reais da pessoa: responde se um gasto cabe no mês, lança e marca contas como pagas e lê os bancos via Open Finance. Escolhe o modelo certo para cada pergunta, usa cache de prompt e mede o custo da IA por usuário.</p>
+        <a href="https://www.mesemordem.com.br" target="_blank" rel="noopener" class="ia-link">Ver projeto →</a>
+      </div>
       <div class="ia-authority-card reveal">
         <div class="ia-authority-tag">Plataforma SaaS</div>
         <h3>ConstVision</h3>
@@ -1642,10 +1677,10 @@ body::before {
         <a href="https://www.constvision.com.br" target="_blank" rel="noopener" class="ia-link">Ver projeto →</a>
       </div>
       <div class="ia-authority-card reveal">
-        <div class="ia-authority-tag">Produto IA em produção</div>
+        <div class="ia-authority-tag">Produto autoral</div>
         <h3>Argonaut</h3>
         <p>Chat com IA para gerenciar aplicações ArgoCD via linguagem natural. Integração ativa com Claude, OpenAI e Gemini, streaming em tempo real (SSE) e criptografia AES-256-GCM. LLM aplicado a operações reais de Kubernetes.</p>
-        <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="ia-link">Ver projeto →</a>
+        <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="ia-link" data-manutencao="Argonaut">Ver projeto →</a>
       </div>
       <div class="ia-authority-card reveal">
         <div class="ia-authority-tag">Pesquisa acadêmica</div>
@@ -1767,6 +1802,24 @@ body::before {
         </div>
       </a>
 
+      <a href="https://www.mesemordem.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/mesemordem.svg" alt="Mês em Ordem"></div>
+            <div class="project-badge">Fintech</div>
+          </div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>Mês em Ordem</h3>
+        <p>Organiza o dinheiro do mês em linguagem simples: contas, cartões e parcelamentos, bancos conectados por Open Finance e um assistente de IA que responde se um gasto cabe no mês.</p>
+        <div class="project-tags">
+          <span class="tag">Spring Boot</span>
+          <span class="tag">React</span>
+          <span class="tag">Open Finance</span>
+          <span class="tag">IA</span>
+        </div>
+      </a>
+
       <a href="https://achei-pedreiro-site-production.up.railway.app/" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
           <div class="project-card-header-left">
@@ -1785,25 +1838,7 @@ body::before {
         </div>
       </a>
 
-      <a href="https://planfin-blue.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
-        <div class="project-card-header">
-          <div class="project-card-header-left">
-            <div class="project-logo"><img src="project-logos/planfin.svg" alt="PlanFin"></div>
-            <div class="project-badge">Web App</div>
-          </div>
-          <div class="project-link-icon">↗</div>
-        </div>
-        <h3>PlanFin</h3>
-        <p>Planejamento financeiro mensal com 2 períodos por mês, lançamentos recorrentes automatizados, categorização e gráficos de evolução de saldos.</p>
-        <div class="project-tags">
-          <span class="tag">Next.js</span>
-          <span class="tag">NextAuth</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Prisma</span>
-        </div>
-      </a>
-
-      <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
+      <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="project-card reveal" data-manutencao="Argonaut">
         <div class="project-card-header">
           <div class="project-card-header-left">
             <div class="project-logo"><img src="project-logos/argonaut.svg" alt="Argonaut"></div>
@@ -1821,7 +1856,7 @@ body::before {
         </div>
       </a>
 
-      <a href="https://ia4devs-ifma.vercel.app" target="_blank" rel="noopener" class="project-card reveal">
+      <a href="https://ia4devs-ifma.vercel.app" target="_blank" rel="noopener" class="project-card reveal" data-manutencao="IA4Devs">
         <div class="project-card-header">
           <div class="project-card-header-left">
             <div class="project-logo"><img src="project-logos/ia4devs.svg" alt="IA4Devs"></div>
@@ -2088,6 +2123,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  });
+});
+
+// Projetos em manutenção: avisa em vez de abrir uma página fora do ar
+const aviso = document.createElement('div');
+aviso.className = 'aviso-manutencao';
+aviso.setAttribute('role', 'status');
+document.body.appendChild(aviso);
+let avisoTimer;
+document.querySelectorAll('[data-manutencao]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    aviso.textContent = `🛠️ ${link.dataset.manutencao} está em manutenção. Volta em breve!`;
+    aviso.classList.add('show');
+    clearTimeout(avisoTimer);
+    avisoTimer = setTimeout(() => aviso.classList.remove('show'), 3500);
   });
 });
 

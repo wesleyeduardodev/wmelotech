@@ -80,7 +80,7 @@ Landing page institucional para apresentar a empresa, serviços e captar cliente
 2. **Hero** — Badge "disponível para projetos", título com accent/outline, descrição, botões (WhatsApp + Serviços), stats (15+ anos, 7 projetos, 4 passagens corporativas)
 3. **Sobre** — Code window animado com dados da empresa + texto descritivo + tags de tecnologias
 4. **Serviços** — 6 cards representando os CNAEs (Dev Sob Medida / Integrações Financeiras / Consultoria TI / Cloud & DevOps / IA / Treinamentos)
-5. **Projetos** — 6 cases reais clicáveis: ConstVision, F. Galvão Eng, DevQuote, Argonaut, PlanFin, Achei Pedreiro
+5. **Projetos** — 6 cases reais clicáveis: ConstVision, F. Galvão Eng, DevQuote, Argonaut, Mês em Ordem, Achei Pedreiro
 6. **Trajetória** — Timeline vertical com 5 marcos: CVC Corp → Globalweb (Caixa/FGTS) → Neogrid → Mentor Construção → IFMA pesquisa → Início autodidata (2011-2018)
 7. **Contato** — CTA box com WhatsApp, e-mail, telefone e localização
 8. **Footer** — Copyright + CNPJ + links âncora
@@ -108,8 +108,12 @@ Landing page institucional para apresentar a empresa, serviços e captar cliente
 | F. Galvão Engenharia | fgalvaoeng.com.br | Next.js 16, Prisma 6, Auth.js v5, AWS S3 | Portfólio + admin |
 | DevQuote | wesley.devquote.com.br | React/TS + Spring Boot, JWT, RBAC 4 níveis | Gestão de tarefas/faturamento |
 | Argonaut | argonaut-six.vercel.app | Next.js 16, Claude/OpenAI/Gemini API, ArgoCD, AES-256 | Chat IA + DevOps |
-| PlanFin | planfin-blue.vercel.app | Next.js, NextAuth, PostgreSQL, Prisma | Planejamento financeiro |
+| Mês em Ordem | www.mesemordem.com.br | Java 25, Spring Boot 4, React 19, PostgreSQL, Spring AI, Open Finance (Pluggy) | Planejamento financeiro do mês (substituiu o PlanFin em 14/10/2026) |
 | Achei Pedreiro | achei-pedreiro-site-production.up.railway.app | Spring Boot, PostgreSQL, mobile | Marketplace |
+
+**Em manutenção (14/10/2026):** Argonaut e IA4Devs estão fora do ar. Os links deles têm `data-manutencao="Nome"`: o clique
+mostra o aviso "Nome está em manutenção" em vez de abrir a página de erro. Quando voltarem, é só tirar o atributo.
+O Mês em Ordem é o destaque do quadro de IA (`ia-authority-card--destaque`, largura toda).
 
 ---
 
@@ -183,8 +187,8 @@ Java, Spring Boot, React, React Native, PostgreSQL, Kubernetes, Docker, ArgoCD, 
 - [ ] **Logos de empresas onde Wesley atuou** (CVC, Caixa via Globalweb, Neogrid, Mentor) como prova social honesta
 
 ### Prioridade 2 — SEO técnico
-- [ ] `sitemap.xml`
-- [ ] `robots.txt`
+- [x] `sitemap.xml` (atualizar o `lastmod` quando o site mudar)
+- [x] `robots.txt`
 - [ ] Schema.org `Service` em cada serviço
 - [ ] Schema `FAQPage` (se criar FAQ)
 - [ ] Google Analytics ou Plausible
