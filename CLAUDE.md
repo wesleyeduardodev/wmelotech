@@ -80,10 +80,11 @@ Landing page institucional para apresentar a empresa, serviços e captar cliente
 2. **Hero** — Badge "disponível para projetos", título com accent/outline, descrição, botões (WhatsApp + Serviços), stats (15+ anos, 7 projetos, 4 passagens corporativas)
 3. **Sobre** — Code window animado com dados da empresa + texto descritivo + tags de tecnologias
 4. **Serviços** — 6 cards representando os CNAEs (Dev Sob Medida / Integrações Financeiras / Consultoria TI / Cloud & DevOps / IA / Treinamentos)
-5. **Projetos** — 6 cases reais clicáveis: ConstVision, F. Galvão Eng, DevQuote, Argonaut, Mês em Ordem, Achei Pedreiro
-6. **Trajetória** — Timeline vertical com 5 marcos: CVC Corp → Globalweb (Caixa/FGTS) → Neogrid → Mentor Construção → IFMA pesquisa → Início autodidata (2011-2018)
-7. **Contato** — CTA box com WhatsApp, e-mail, telefone e localização
-8. **Footer** — Copyright + CNPJ + links âncora
+5. **IA & Automação** — 4 serviços de IA com ícone + faixa de provas (Claude no Mês em Ordem, artigo 2021, minicurso IFMA); sem cards de projeto, para não repetir a seção Projetos
+6. **Projetos** — Placar Eleição em destaque (largura toda, com números, selo que muda sozinho com a data da apuração) + 9 cases em 3x3 (os mais fortes primeiro; Argonaut e IA4Devs no fim). No celular (≤600 px) só os 4 primeiros aparecem, sem as etiquetas de tecnologia; o botão "Ver todos os projetos" abre o resto
+7. **Trajetória** — Timeline com 6 marcos de uma linha cada: CVC Corp → Globalweb (Caixa/FGTS) → Neogrid → Mentor Construção → IFMA (bacharel + pesquisa em IA) → Início autodidata (2011-2018)
+8. **Contato** — CTA box com WhatsApp, e-mail, telefone e localização
+9. **Footer** — Copyright + CNPJ + links âncora
 
 ---
 
@@ -110,10 +111,14 @@ Landing page institucional para apresentar a empresa, serviços e captar cliente
 | Argonaut | argonaut-six.vercel.app | Next.js 16, Claude/OpenAI/Gemini API, ArgoCD, AES-256 | Chat IA + DevOps |
 | Mês em Ordem | www.mesemordem.com.br | Java 25, Spring Boot 4, React 19, PostgreSQL, Spring AI, Open Finance (Pluggy) | Planejamento financeiro do mês (substituiu o PlanFin em 14/10/2026) |
 | Achei Pedreiro | achei-pedreiro-site-production.up.railway.app | Spring Boot, PostgreSQL, mobile | Marketplace |
+| Placar Eleição | placareleicao.com.br | Cloudflare Workers + Durable Objects, R2 + CDN, React/TS, API do TSE | Apuração em tempo real do 2º turno 2026 (produto próprio; destaque em largura toda no topo dos Projetos, `project-card--destaque`) |
 
-**Em manutenção (14/10/2026):** Argonaut e IA4Devs estão fora do ar. Os links deles têm `data-manutencao="Nome"`: o clique
-mostra o aviso "Nome está em manutenção" em vez de abrir a página de erro. Quando voltarem, é só tirar o atributo.
-O Mês em Ordem é o destaque do quadro de IA (`ia-authority-card--destaque`, largura toda).
+**Em manutenção:** Argonaut e IA4Devs estão fora do ar e ficam no fim da grade de Projetos com `data-manutencao="Nome"`:
+o clique mostra o aviso "Nome está em manutenção" em vez de abrir a página de erro. Quando voltarem, é só tirar o atributo.
+
+**Tamanho e espaços:** seções com 4rem em cima/embaixo (3rem no celular); no celular o topo não ocupa a tela inteira.
+O site tem ~16 telas de celular (390 px) e ~11 no computador (1366×768); antes eram 24 e 12,7. Medir de novo ao
+acrescentar seção. A janela de código do "Sobre" reserva a altura do texto completo (não corta nem pula ao digitar).
 
 ---
 

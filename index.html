@@ -45,7 +45,7 @@
   },
   "description": "Desenvolvimento de software sob medida, integrações financeiras, consultoria em TI, cloud, DevOps e treinamentos.",
   "areaServed": "BR",
-  "knowsAbout": ["Java","Spring Boot","React","PostgreSQL","Kubernetes","Docker","ArgoCD","APIs Bancárias","PIX","Microsserviços","Inteligência Artificial"]
+  "knowsAbout": ["Java","Spring Boot","React","PostgreSQL","Kubernetes","Docker","ArgoCD","APIs Bancárias","PIX","Microsserviços","Inteligência Artificial","Cloudflare Workers","Sistemas em tempo real"]
 }
 </script>
 <style>
@@ -380,7 +380,7 @@ body::before {
 
 /* ========== SECTIONS COMMON ========== */
 .section {
-  padding: 7rem 0;
+  padding: 4rem 0;
   position: relative;
 }
 
@@ -429,7 +429,7 @@ body::before {
 
 .about-visual {
   position: relative;
-  height: 400px;
+  min-height: 400px;
   background: var(--bg-card);
   border-radius: 16px;
   border: 1px solid var(--border);
@@ -728,6 +728,103 @@ body::before {
 .project-tags .tag {
   font-size: 0.7rem;
   padding: 0.3rem 0.7rem;
+}
+
+/* Projeto em destaque: largura toda, texto + números lado a lado */
+.project-card--destaque {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  border-color: var(--border-accent);
+}
+
+.project-card--destaque::before { opacity: 1; }
+
+.project-card--destaque + .projects-grid { margin-top: 1.5rem; }
+
+.project-destaque-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.project-card--destaque h3 { font-size: 1.6rem; }
+
+.project-card--destaque p { font-size: 0.95rem; }
+
+.project-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.project-live::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s infinite;
+}
+
+.project-live--ao-vivo { color: var(--accent); }
+
+.project-live--parado::before {
+  background: var(--text-muted);
+  box-shadow: none;
+  animation: none;
+}
+
+.project-numeros {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+}
+
+.project-numero {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.project-numero strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.1;
+}
+
+.project-numero span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.projects-mais {
+  display: none;
+  margin: 1.5rem auto 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--border-accent);
+  border-radius: 10px;
+  padding: 0.8rem 1.4rem;
+  cursor: pointer;
 }
 
 .projects-note {
@@ -1114,92 +1211,11 @@ body::before {
   transform: translate(-50%, 0);
 }
 
-.ia-authority-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-  position: relative;
-}
-
-.ia-authority-card--destaque {
-  grid-column: 1 / -1;
-  border-color: var(--border-accent);
-}
-
-.ia-authority-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  transition: all 0.4s var(--transition);
-}
-
-.ia-authority-card:hover {
-  border-color: var(--border-accent);
-  background: var(--bg-card-hover);
-  transform: translateY(-4px);
-}
-
-.ia-authority-tag {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--accent);
-  background: var(--accent-glow);
-  border: 1px solid var(--border-accent);
-  padding: 0.3rem 0.7rem;
-  border-radius: 6px;
-  align-self: flex-start;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.ia-authority-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-top: 0.3rem;
-  letter-spacing: -0.01em;
-}
-
-.ia-authority-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-  font-weight: 300;
-  flex: 1;
-}
-
-.ia-link {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent);
-  font-weight: 500;
-  margin-top: 0.5rem;
-  transition: opacity 0.3s;
-}
-
-.ia-link:hover {
-  opacity: 0.75;
-}
-
-.ia-services-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  letter-spacing: -0.02em;
-  position: relative;
-}
-
 .ia-services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
+  margin-top: 3rem;
   position: relative;
 }
 
@@ -1235,10 +1251,44 @@ body::before {
   font-weight: 300;
 }
 
+.ia-provas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.ia-prova {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: all 0.3s var(--transition);
+}
+
+.ia-prova strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ia-prova:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-card-hover);
+}
+
+.ia-prova-icon { font-size: 1.1rem; }
+
 /* ========== TRUST STRIP (logos) ========== */
 .trust-strip {
-  margin-top: 4rem;
-  padding-top: 3rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--border);
   text-align: center;
 }
@@ -1375,9 +1425,13 @@ body::before {
   }
   .mobile-toggle { display: block; }
 
+  .hero { min-height: auto; }
+  .hero-content { padding-top: 6rem; padding-bottom: 2.5rem; }
   .hero-stats {
     gap: 1.5rem;
     flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
   }
 
   .about-grid {
@@ -1385,7 +1439,7 @@ body::before {
     gap: 2rem;
   }
 
-  .about-visual { height: 300px; }
+  .about-visual { min-height: 0; }
 
   .services-grid {
     grid-template-columns: 1fr;
@@ -1402,11 +1456,12 @@ body::before {
     grid-column: 1 / -1;
   }
 
-  .diferenciais-grid {
+  .project-card--destaque {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .ia-authority-grid {
+  .diferenciais-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1438,13 +1493,26 @@ body::before {
 }
 
 @media (max-width: 600px) {
-  .hero-stats { gap: 1.5rem; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .stat-number { font-size: 1.6rem; }
   .contact-box { padding: 2.5rem 1.5rem; }
   .logo-svg { height: 36px; }
   .nav.scrolled .logo-svg { height: 32px; }
 
-  .ia-services-grid { grid-template-columns: 1fr; }
+  .section { padding: 3rem 0; }
+  .section-title { font-size: 1.8rem; }
+  .project-tags { display: none; }
+  .ia-services-grid { gap: 0.7rem; }
+  .ia-service { padding: 1rem; }
+  .ia-service-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .ia-service h4 { font-size: 0.9rem; }
+  .ia-service p { font-size: 0.78rem; }
+  .ia-provas { flex-direction: column; align-items: center; }
+  .project-card--destaque { padding: 1.5rem 1.25rem; }
+  .projects-grid:not(.aberto) .project-card:nth-child(n+5) { display: none; }
+  .projects-mais { display: block; }
+  .project-numeros { gap: 0.6rem; }
+  .project-numero { padding: 0.8rem 0.5rem; }
   .processo-grid { grid-template-columns: 1fr; }
   .diferencial-card { flex-direction: column; }
   .trust-logo { font-size: 0.85rem; }
@@ -1585,14 +1653,14 @@ body::before {
         <div class="diferencial-icon">⚡</div>
         <div class="diferencial-body">
           <h3>Sistemas críticos em produção</h3>
-          <p>Passagens por CVC Corp (maior grupo de viagens da América Latina), Caixa Econômica via FGTS e Neogrid. Engenharia validada por milhões de usuários reais.</p>
+          <p>Passagens por CVC Corp (maior grupo de viagens da América Latina), Caixa Econômica via FGTS e Neogrid. Engenharia validada por milhões de usuários reais — e produtos próprios em tempo real, como o Placar Eleição.</p>
         </div>
       </div>
       <div class="diferencial-card reveal">
         <div class="diferencial-icon">🧠</div>
         <div class="diferencial-body">
           <h3>IA aplicada com autoridade</h3>
-          <p>Produtos autorais com Claude, GPT e Gemini (Mês em Ordem em produção e Argonaut), publicação acadêmica em IA (Computer on The Beach 2021) e minicurso de IA ministrado no IFMA. Não é buzzword.</p>
+          <p>Produto autoral com Claude em produção (Mês em Ordem), publicação acadêmica em IA (Computer on The Beach 2021) e minicurso de IA ministrado no IFMA. Não é buzzword.</p>
         </div>
       </div>
       <div class="diferencial-card reveal">
@@ -1661,42 +1729,8 @@ body::before {
   <div class="container">
     <div class="section-label reveal">// ia & automação</div>
     <h2 class="section-title reveal">Inteligência Artificial aplicada<br>com <span style="color:var(--accent)">autoridade técnica</span></h2>
-    <p class="section-subtitle reveal">Não é hype. São produtos em produção, pesquisa acadêmica publicada e experiência didática real.</p>
+    <p class="section-subtitle reveal">Não é hype: é o que entregamos, com produto em produção, pesquisa publicada e experiência didática para provar.</p>
 
-    <div class="ia-authority-grid">
-      <div class="ia-authority-card ia-authority-card--destaque reveal">
-        <div class="ia-authority-tag">Produto IA em produção</div>
-        <h3>Mês em Ordem</h3>
-        <p>Assistente financeiro com Claude que conversa em linguagem simples e age nos dados reais da pessoa: responde se um gasto cabe no mês, lança e marca contas como pagas e lê os bancos via Open Finance. Escolhe o modelo certo para cada pergunta, usa cache de prompt e mede o custo da IA por usuário.</p>
-        <a href="https://www.mesemordem.com.br" target="_blank" rel="noopener" class="ia-link">Ver projeto →</a>
-      </div>
-      <div class="ia-authority-card reveal">
-        <div class="ia-authority-tag">Plataforma SaaS</div>
-        <h3>ConstVision</h3>
-        <p>Plataforma multi-tenant para construção civil com arquitetura Medallion (Bronze→Silver→Gold), pgvector para embeddings semânticos e Spring AI para Natural Language Query sobre o data warehouse — fundação técnica robusta para IA aplicada a dados de negócio.</p>
-        <a href="https://www.constvision.com.br" target="_blank" rel="noopener" class="ia-link">Ver projeto →</a>
-      </div>
-      <div class="ia-authority-card reveal">
-        <div class="ia-authority-tag">Produto autoral</div>
-        <h3>Argonaut</h3>
-        <p>Chat com IA para gerenciar aplicações ArgoCD via linguagem natural. Integração ativa com Claude, OpenAI e Gemini, streaming em tempo real (SSE) e criptografia AES-256-GCM. LLM aplicado a operações reais de Kubernetes.</p>
-        <a href="https://argonaut-six.vercel.app" target="_blank" rel="noopener" class="ia-link" data-manutencao="Argonaut">Ver projeto →</a>
-      </div>
-      <div class="ia-authority-card reveal">
-        <div class="ia-authority-tag">Pesquisa acadêmica</div>
-        <h3>Publicação científica</h3>
-        <p>"Utilizando Análise de Sentimentos e SVM na Classificação de Tweets Depressivos" — <em>Computer on The Beach 2021</em>. Python, Naive Bayes, redes neurais e PLN aplicados.</p>
-        <a href="https://periodicos.univali.br/index.php/acotb/article/view/17388" target="_blank" rel="noopener" class="ia-link">Ler artigo →</a>
-      </div>
-      <div class="ia-authority-card reveal">
-        <div class="ia-authority-tag">Experiência didática</div>
-        <h3>Minicurso de IA · IFMA</h3>
-        <p>Conteúdo introdutório de Inteligência Artificial ministrado no Instituto Federal do Maranhão. Experiência didática que reforça a entrega de treinamentos sob medida para equipes.</p>
-        <a href="#contato" class="ia-link">Treinamentos sob medida →</a>
-      </div>
-    </div>
-
-    <h3 class="ia-services-title reveal">O que entregamos com IA</h3>
     <div class="ia-services-grid">
       <div class="ia-service reveal">
         <div class="ia-service-icon">🤖</div>
@@ -1719,6 +1753,21 @@ body::before {
         <p>Análise de documentos, classificação, extração de dados e workflows automáticos.</p>
       </div>
     </div>
+
+    <div class="ia-provas reveal">
+      <a href="https://www.mesemordem.com.br" target="_blank" rel="noopener" class="ia-prova">
+        <span class="ia-prova-icon">💬</span>
+        <span><strong>Claude em produção</strong> no Mês em Ordem</span>
+      </a>
+      <a href="https://periodicos.univali.br/index.php/acotb/article/view/17388" target="_blank" rel="noopener" class="ia-prova">
+        <span class="ia-prova-icon">📄</span>
+        <span><strong>Artigo publicado</strong> em IA (2021)</span>
+      </a>
+      <a href="#contato" class="ia-prova">
+        <span class="ia-prova-icon">🎓</span>
+        <span><strong>Minicurso de IA</strong> no IFMA</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1728,23 +1777,49 @@ body::before {
     <div class="section-label reveal">// portfólio</div>
     <h2 class="section-title reveal">Projetos em produção</h2>
     <p class="section-subtitle reveal">Sistemas reais que projetamos e entregamos — do MVP à plataforma multi-tenant.</p>
-    <div class="projects-grid">
-
-      <a href="https://mentorconstrucao.com.br" target="_blank" rel="noopener" class="project-card reveal">
+    <a href="https://placareleicao.com.br" target="_blank" rel="noopener" class="project-card project-card--destaque reveal">
+      <div class="project-destaque-texto">
         <div class="project-card-header">
           <div class="project-card-header-left">
-            <div class="project-logo"><img src="project-logos/mentor.png" alt="Mentor Construção"></div>
-            <div class="project-badge">Sustentação</div>
+            <div class="project-logo"><img src="project-logos/placareleicao.svg" alt="Placar Eleição"></div>
+            <div class="project-badge">Tempo real</div>
           </div>
           <div class="project-link-icon">↗</div>
         </div>
-        <h3>Mentor Construção</h3>
-        <p>Plataforma SaaS de gerenciamento de obras para construtoras. Atuação no desenvolvimento original (2019–2021) e suporte técnico contínuo ao sistema.</p>
+        <h3>Placar Eleição</h3>
+        <div class="project-live" data-placar-selo>produto próprio · eleições 2026</div>
+        <p>Apuração do 2º turno para Presidente em tempo real, com placar e mapa de todos os municípios. Um robô consulta a API do TSE respeitando o limite oficial, confere cada número e publica arquivos prontos que a CDN entrega a qualquer quantidade de visitantes. Reserva manual ensaiada, botão de emergência e painel admin protegido.</p>
         <div class="project-tags">
-          <span class="tag">Java / Spring</span>
-          <span class="tag">JSF · PrimeFaces</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Sustentação</span>
+          <span class="tag">Cloudflare Workers</span>
+          <span class="tag">Durable Objects</span>
+          <span class="tag">R2 + CDN</span>
+          <span class="tag">React + TS</span>
+          <span class="tag">API do TSE</span>
+        </div>
+      </div>
+      <div class="project-numeros">
+        <div class="project-numero"><strong>3 s</strong><span>entre cada consulta ao TSE</span></div>
+        <div class="project-numero"><strong>5.570</strong><span>municípios no mapa</span></div>
+        <div class="project-numero"><strong>0</strong><span>servidores para manter: tudo na borda</span></div>        </div>
+    </a>
+
+    <div class="projects-grid">
+
+      <a href="https://www.mesemordem.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/mesemordem.svg" alt="Mês em Ordem"></div>
+            <div class="project-badge">Fintech</div>
+          </div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>Mês em Ordem</h3>
+        <p>Organiza o dinheiro do mês em linguagem simples: contas, cartões e parcelamentos, bancos conectados por Open Finance e um assistente de IA que responde se um gasto cabe no mês.</p>
+        <div class="project-tags">
+          <span class="tag">Spring Boot</span>
+          <span class="tag">React</span>
+          <span class="tag">Open Finance</span>
+          <span class="tag">IA</span>
         </div>
       </a>
 
@@ -1763,6 +1838,24 @@ body::before {
           <span class="tag">Spring Boot 4</span>
           <span class="tag">React 19</span>
           <span class="tag">PostgreSQL</span>
+        </div>
+      </a>
+
+      <a href="https://mentorconstrucao.com.br" target="_blank" rel="noopener" class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-card-header-left">
+            <div class="project-logo"><img src="project-logos/mentor.png" alt="Mentor Construção"></div>
+            <div class="project-badge">Sustentação</div>
+          </div>
+          <div class="project-link-icon">↗</div>
+        </div>
+        <h3>Mentor Construção</h3>
+        <p>Plataforma SaaS de gerenciamento de obras para construtoras. Atuação no desenvolvimento original (2019–2021) e suporte técnico contínuo ao sistema.</p>
+        <div class="project-tags">
+          <span class="tag">Java / Spring</span>
+          <span class="tag">JSF · PrimeFaces</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Sustentação</span>
         </div>
       </a>
 
@@ -1802,21 +1895,21 @@ body::before {
         </div>
       </a>
 
-      <a href="https://www.mesemordem.com.br" target="_blank" rel="noopener" class="project-card reveal">
+      <a href="https://www.fgalvaoeng.com.br" target="_blank" rel="noopener" class="project-card reveal">
         <div class="project-card-header">
           <div class="project-card-header-left">
-            <div class="project-logo"><img src="project-logos/mesemordem.svg" alt="Mês em Ordem"></div>
-            <div class="project-badge">Fintech</div>
+            <div class="project-logo"><img src="project-logos/fgalvao.svg" alt="F. Galvão Engenharia"></div>
+            <div class="project-badge">Site + Admin</div>
           </div>
           <div class="project-link-icon">↗</div>
         </div>
-        <h3>Mês em Ordem</h3>
-        <p>Organiza o dinheiro do mês em linguagem simples: contas, cartões e parcelamentos, bancos conectados por Open Finance e um assistente de IA que responde se um gasto cabe no mês.</p>
+        <h3>F. Galvão Engenharia</h3>
+        <p>Portfólio profissional com painel admin completo para gerenciar projetos, mídias e contatos. Upload de imagens via S3 com presigned URLs.</p>
         <div class="project-tags">
-          <span class="tag">Spring Boot</span>
-          <span class="tag">React</span>
-          <span class="tag">Open Finance</span>
-          <span class="tag">IA</span>
+          <span class="tag">Next.js 16</span>
+          <span class="tag">Prisma</span>
+          <span class="tag">Auth.js</span>
+          <span class="tag">AWS S3</span>
         </div>
       </a>
 
@@ -1874,25 +1967,9 @@ body::before {
         </div>
       </a>
 
-      <a href="https://www.fgalvaoeng.com.br" target="_blank" rel="noopener" class="project-card reveal">
-        <div class="project-card-header">
-          <div class="project-card-header-left">
-            <div class="project-logo"><img src="project-logos/fgalvao.svg" alt="F. Galvão Engenharia"></div>
-            <div class="project-badge">Site + Admin</div>
-          </div>
-          <div class="project-link-icon">↗</div>
-        </div>
-        <h3>F. Galvão Engenharia</h3>
-        <p>Portfólio profissional com painel admin completo para gerenciar projetos, mídias e contatos. Upload de imagens via S3 com presigned URLs.</p>
-        <div class="project-tags">
-          <span class="tag">Next.js 16</span>
-          <span class="tag">Prisma</span>
-          <span class="tag">Auth.js</span>
-          <span class="tag">AWS S3</span>
-        </div>
-      </a>
-
     </div>
+
+    <button type="button" class="projects-mais" data-projetos-mais>Ver todos os projetos</button>
 
     <p class="projects-note reveal">
       <span>*</span> Vitrine parcial — há outros projetos em desenvolvimento ou sob confidencialidade. <a href="#contato">Solicite o portfólio completo →</a>
@@ -1914,7 +1991,7 @@ body::before {
           <div class="timeline-period">fev/2024 — presente</div>
           <h3>Desenvolvedor Java Sênior</h3>
           <div class="timeline-company">CVC Corp — maior grupo de viagens da América Latina</div>
-          <p>Sistemas financeiros em arquitetura distribuída. Spring Boot, microsserviços, Redis distribuído, OAuth2/JWT, Kafka. DevOps com Jenkins, Docker, Kubernetes. Observabilidade com Grafana e Dynatrace.</p>
+          <p>Sistemas financeiros em arquitetura distribuída: microsserviços, Kafka, Kubernetes e observabilidade.</p>
         </div>
       </div>
 
@@ -1924,7 +2001,7 @@ body::before {
           <div class="timeline-period">set/2022 — fev/2024</div>
           <h3>Desenvolvedor Java Fullstack Pleno</h3>
           <div class="timeline-company">Globalweb Corp — cliente Caixa Econômica Federal</div>
-          <p>APIs do produto Saque-Aniversário do FGTS — serviços que impactam milhões de trabalhadores em todo o Brasil. Quarkus/Spring, Oracle, Keycloak, Angular no frontend.</p>
+          <p>APIs do Saque-Aniversário do FGTS, usadas por milhões de trabalhadores em todo o Brasil.</p>
         </div>
       </div>
 
@@ -1934,7 +2011,7 @@ body::before {
           <div class="timeline-period">mar/2021 — set/2022</div>
           <h3>Desenvolvedor Java</h3>
           <div class="timeline-company">Neogrid — solução fiscal nacional</div>
-          <p>Notas fiscais eletrônicas, integração com SEFAZ. Projeto autoral: automação de anexos do Outlook via Azure AD + Microsoft Graph API — entregue do zero ao deploy.</p>
+          <p>Notas fiscais eletrônicas e integração com a SEFAZ.</p>
         </div>
       </div>
 
@@ -1944,17 +2021,7 @@ body::before {
           <div class="timeline-period">jan/2019 — abr/2021</div>
           <h3>Desenvolvedor Java Fullstack</h3>
           <div class="timeline-company">Mentor Construção — plataforma para construtoras</div>
-          <p>Plataforma web/mobile para o setor de construção civil. JSF + PrimeFaces, Spring, PostgreSQL, Hibernate, JasperReports. Integração web ↔ mobile via APIs REST.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <div class="timeline-period">2020 — 2021</div>
-          <h3>Pesquisa em IA & Publicação Acadêmica</h3>
-          <div class="timeline-company">IFMA — Instituto Federal do Maranhão</div>
-          <p>Análise de sentimentos em tweets em pt-BR com Python, Naive Bayes, SVM e redes neurais. Artigo publicado no <em>Computer on The Beach 2021</em>.</p>
+          <p>Plataforma web e mobile para o setor de construção civil.</p>
         </div>
       </div>
 
@@ -1962,9 +2029,9 @@ body::before {
         <div class="timeline-marker"></div>
         <div class="timeline-content">
           <div class="timeline-period">2016 — 2021</div>
-          <h3>Bacharel em Sistemas de Informação</h3>
+          <h3>Bacharel em Sistemas de Informação e pesquisa em IA</h3>
           <div class="timeline-company">IFMA — Instituto Federal do Maranhão</div>
-          <p>Graduação formal em Sistemas de Informação durante período de atuação profissional crescente. Período em que também se desenvolveu a pesquisa em IA publicada em 2021, consolidando base acadêmica e prática.</p>
+          <p>Artigo de IA publicado no <em>Computer on The Beach 2021</em>: análise de sentimentos com SVM e redes neurais.</p>
         </div>
       </div>
 
@@ -1974,7 +2041,7 @@ body::before {
           <div class="timeline-period">2011 — 2018</div>
           <h3>Início autodidata em programação</h3>
           <div class="timeline-company">Projetos pessoais & formação técnica</div>
-          <p>Primeiros contatos com desenvolvimento de software por meio de projetos pessoais e estudo autodidata. Anos de formação que antecederam a graduação em Sistemas de Informação no IFMA e a entrada no mercado formal — base técnica construída na prática.</p>
+          <p>Projetos pessoais e estudo por conta própria: a base técnica construída na prática.</p>
         </div>
       </div>
 
@@ -2142,10 +2209,38 @@ document.querySelectorAll('[data-manutencao]').forEach(link => {
   });
 });
 
+// Projetos no celular: mostra os 4 primeiros e o botão abre o resto
+const projetosMais = document.querySelector('[data-projetos-mais]');
+if (projetosMais) {
+  projetosMais.addEventListener('click', () => {
+    document.querySelector('.projects-grid').classList.add('aberto');
+    projetosMais.remove();
+  });
+}
+
+// Selo do Placar Eleição: muda sozinho com a data da apuração (horário de Brasília)
+const placarSelo = document.querySelector('[data-placar-selo]');
+if (placarSelo) {
+  const agora = Date.now();
+  const inicio = Date.parse('2026-10-25T17:00:00-03:00');
+  const fim = Date.parse('2026-10-26T06:00:00-03:00');
+  if (agora < inicio) {
+    placarSelo.textContent = 'ao vivo dom. 25/10, 17h';
+  } else if (agora < fim) {
+    placarSelo.textContent = 'ao vivo agora';
+    placarSelo.classList.add('project-live--ao-vivo');
+  } else {
+    placarSelo.textContent = '2º turno 2026 · apurado';
+    placarSelo.classList.add('project-live--parado');
+  }
+}
+
 // Typing effect on code window (optimized with string accumulation)
 const codeEl = document.querySelector('.code-content');
 if (codeEl) {
   const fullHtml = codeEl.innerHTML;
+  // Reserva a altura do texto completo: a caixa não pula nem corta o fim durante a digitação
+  codeEl.style.minHeight = codeEl.offsetHeight + 'px';
   codeEl.innerHTML = '';
   codeEl.style.opacity = '1';
   let i = 0;

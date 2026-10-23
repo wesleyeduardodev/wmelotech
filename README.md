@@ -27,6 +27,7 @@ Empresa de tecnologia que desenvolve **software sob medida** para empresas, com 
 
 ## Alguns projetos
 
+- **[Placar Eleição](https://placareleicao.com.br):** apuração da eleição para Presidente em tempo real, com mapa de todos os municípios.
 - **[Mês em Ordem](https://www.mesemordem.com.br):** app para organizar o dinheiro do mês, com bancos conectados e assistente de IA.
 - **[ConstVision](https://www.constvision.com.br):** plataforma para empresas da construção civil.
 - **[Mentor Construção](https://mentorconstrucao.com.br):** sistema para a área da construção.
