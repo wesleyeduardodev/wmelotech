@@ -2,7 +2,7 @@
 
 ## Projeto
 Site institucional (landing page) da empresa **WMelo Tech** (W E DE O MELO - TECNOLOGIA ME).
-Arquivo único `index.html` na raiz, sem build, deploy via Railway com domínio próprio na Cloudflare.
+Arquivo único `index.html` na raiz, sem build, publicado no **Cloudflare Pages** (projeto `wmelotech`, grátis) com domínio próprio na Cloudflare.
 
 ---
 
@@ -68,7 +68,7 @@ Landing page institucional para apresentar a empresa, serviços e captar cliente
 - **Animações**: Scroll reveal (IntersectionObserver), typing effect no code block, orbs flutuantes, hover effects
 - **Sem dependências externas** (exceto Google Fonts)
 - **Logo**: SVG inline (vector, sem fundo, escala perfeita) + `logo.png` na raiz para OG image / sharing
-- **Deploy**: Railway (push pra branch `main` faz deploy automático)
+- **Deploy**: Cloudflare Pages, projeto `wmelotech` (push na `main` publica sozinho em ~1 min). O build copia **só** `index.html`, `logo.png`, `project-logos/`, `robots.txt` e `sitemap.xml` para `publico/` (o `CLAUDE.md`, o `README.md` e o `plans/` não vão para o ar). **Arquivo público novo na raiz? Incluir no build command** (painel → Workers & Pages → wmelotech → Settings → Build).
 - **DNS**: Cloudflare (nameservers `corey.ns.cloudflare.com` + `jade.ns.cloudflare.com`)
 - **E-mail**: Cloudflare Email Routing — `contato@wmelotech.com.br` → forward pro Gmail pessoal
 
@@ -175,8 +175,8 @@ Java, Spring Boot, React, React Native, PostgreSQL, Kubernetes, Docker, ArgoCD, 
 |---|---|
 | Domínio `wmelotech.com.br` registrado no Registro.br | ✅ |
 | Domínio na Cloudflare (nameservers configurados) | ⏳ Aguardando propagação |
-| Site no Railway (`wmelotech-production.up.railway.app`) | ✅ Ativo |
-| Domínio customizado no Railway (`wmelotech.com.br` + `www`) | ⏳ Aguardando DNS |
+| Site no Cloudflare Pages (`wmelotech.pages.dev`) | ✅ Ativo desde 09/11/2026 (saiu do Railway) |
+| Domínio `wmelotech.com.br` + `www` (CNAME → `wmelotech.pages.dev`, nuvem laranja) | ✅ Ativo |
 | Cloudflare Email Routing (`contato@wmelotech.com.br`) | ⏳ Aguardando zona Active |
 | Gmail "Send mail as" configurado | ❌ Pendente (depois do Email Routing) |
 
@@ -208,7 +208,7 @@ Java, Spring Boot, React, React Native, PostgreSQL, Kubernetes, Docker, ArgoCD, 
 - [ ] Versão da logo com fundo transparente (para outros usos)
 
 ### Prioridade 5 — Deploy & operação
-- [ ] Confirmar SSL ativo no Railway após DNS propagar
+- [x] SSL ativo (Cloudflare Pages)
 - [ ] Configurar Gmail "Send mail as" → responder saindo como `contato@wmelotech.com.br`
 - [ ] Validar OG image no [opengraph.dev](https://opengraph.dev) após propagação
 
@@ -230,6 +230,6 @@ Java, Spring Boot, React, React Native, PostgreSQL, Kubernetes, Docker, ArgoCD, 
 
 - Editar `index.html` direto — arquivo único, sem build
 - Para testar local: abrir `index.html` no browser (ou usar `python -m http.server` na raiz)
-- Para deploy: `git push` na branch `main` — Railway detecta e faz redeploy
+- Para deploy: `git push` na branch `main` — o Cloudflare Pages publica sozinho. O e-mail no HTML aparece "protegido" no código-fonte (Email Obfuscation da Cloudflare, contra spam); no navegador fica normal.
 - Logo em PNG (`logo.png`) é usada como OG image — manter na raiz, committed no git
 - Manter o tom do CSS: NUNCA introduzir frameworks ou bibliotecas — o diferencial é a leveza
